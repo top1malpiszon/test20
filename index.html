@@ -11,13 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #000000;
-            background-image:
-                radial-gradient(circle at 100% 100%, transparent 10%, #02001a 15%, #02001a 20%, #050038 30%, transparent 45%),
-                radial-gradient(circle at 0% 0%, transparent 10%, #02001a 15%, #02001a 20%, #050038 30%, transparent 45%);
-            background-size: 200% 200%;
-            background-position: 50% 50%;
-            animation: digital-pulse 12s ease-in-out infinite alternate;
+            background-color: #0d0d0d;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -27,15 +21,36 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
+            position: relative;
         }
 
-        @keyframes digital-pulse {
-            0% {
-                background-position: 0% 0%;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            background-image:
+                radial-gradient(ellipse at 100px 100px, rgba(204, 255, 0, 0.5) 1px, transparent 1px),
+                radial-gradient(ellipse at 250px 250px, rgba(204, 255, 0, 0.4) 1px, transparent 1px),
+                radial-gradient(ellipse at 400px 400px, rgba(204, 255, 0, 0.6) 1px, transparent 1px),
+                radial-gradient(ellipse at 550px 550px, rgba(204, 255, 0, 0.3) 1px, transparent 1px),
+                radial-gradient(ellipse at 700px 700px, rgba(204, 255, 0, 0.7) 1px, transparent 1px),
+                radial-gradient(ellipse at 850px 850px, rgba(204, 255, 0, 0.5) 1px, transparent 1px);
+            background-size: 500px 500px, 450px 450px, 600px 600px, 700px 700px, 550px 550px, 750px 750px;
+            animation: star-move 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes star-move {
+            from {
+                background-position: 0 0;
             }
 
-            100% {
-                background-position: 100% 100%;
+            to {
+                background-position: 800px 800px;
             }
         }
 
